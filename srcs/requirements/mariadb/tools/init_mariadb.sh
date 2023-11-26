@@ -1,7 +1,7 @@
 #!/bin/bash
 #set -eux
 
-service MariaDB start;
+mysqld_safe --nowatch &
 
 # log into MariaDB as root and create database and the user
 MariaDB -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
@@ -11,8 +11,7 @@ MariaDB -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
 MariaDB -e "FLUSH PRIVILEGES;"
 
 MariaDBadmin -u root -p${SQL_ROOT_PASSWORD} shutdown
-#mysqladmin -u root shutdown
-exec mysqld_safe
 
-#print status
-echo "MariaDB database and user were created successfully! "
+echo "MariaDB start! "
+
+exec mysqld_safe

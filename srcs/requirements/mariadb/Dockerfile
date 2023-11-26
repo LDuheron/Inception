@@ -1,11 +1,8 @@
 FROM debian:bullseye
 
-
 RUN apt-get update -y \
     && apt-get upgrade -y \
-    && apt-get install -y mariadb-server \
-    && apt-get install -y mariadb-client \
-    && apt-get install -y procps
+    && apt-get install -y mariadb-server mariadb-client procps
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
@@ -18,9 +15,7 @@ RUN mkdir -p /var/run/mysqld \
 
 EXPOSE 3306
 
-COPY ./tools/dbscript.sh ./
-RUN chmod +x ./dbscript.sh
+COPY ./tools/init_mariadb.sh ./
+RUN chmod +x ./init_mariadb.sh
 
-COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
-
-ENTRYPOINT ["bash", "./dbscript.sh"]
+ENTRYPOINT ["bash", "./init_mariadb.sh"]
