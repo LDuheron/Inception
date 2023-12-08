@@ -1,0 +1,26 @@
+To enter a container : 
+
+docker container exec -it mariadb /bin/bash
+
+docker logs "nom de ton container"
+
+docker build -t myimagename /path/to/your/dockerfile
+docker run -it myimagename /bin/bash
+
+dans le container mariadb : 
+
+    mysql -u root -p 
+    SHOW DATABASES;
+    USE inception;
+    SELECT *;
+    EXIT;
+
+sur le site wordpress : 
+
+    https://lduheron.42.fr/wp-admin
+
+    pouvoir se co comme user + comme admin 
+    pouvoir ajouter comments + editer / ajouter page
+
+savoir expliquer docker compose + docker network
+savoir expliquer les volumes 

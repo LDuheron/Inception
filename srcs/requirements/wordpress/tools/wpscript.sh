@@ -1,5 +1,6 @@
-
 #!/bin/bash
+
+#cd /var/www/html/wordpress
 
 if [ ! -f /var/www/html/wordpress/wp-config.php ]; then
 	bash /tmp/init_wp.sh;

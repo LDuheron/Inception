@@ -31,5 +31,4 @@ RUN chmod +x /tmp/init_wp.sh
 
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
-
 ENTRYPOINT ["bash", "./wpscript.sh"]
