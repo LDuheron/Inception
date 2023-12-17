@@ -31,5 +31,3 @@ wp plugin delete hello --allow-root
 
 wp rewrite structure '' --hard --allow-root
 wp rewrite flush --hard --allow-root
-
-mv /tmp/sources/cv.html /var/www/html/wordpress
